@@ -1,5 +1,5 @@
 const enhancer = require("./enhancer.js");
-const { fail } = require("yargs");
+
 
 // test away!
 
@@ -76,6 +76,35 @@ describe("fail", () => {
     expect(enhanceFail.enhancement).toBe(item.enhancement);
   });
 });
+
+
+//get
+describe("get", () => {
+  it("name is not changed ", () => {
+    let item = {
+      name: "Crossbow",
+      durability: 35,
+      enhancement: 0,
+    };
+
+    const getName = enhancer.get(item);
+    expect(getName.name).toBe(item.name);
+  });
+
+  it("name changes ", () => {
+    let item = {
+      name: "Crossbow",
+      durability: 35,
+      enhancement: 10,
+    };
+
+    const getName = enhancer.get(item);
+    expect(getName.name).toBe(item.name);
+  });
+
+});
+
+
 
 
 
